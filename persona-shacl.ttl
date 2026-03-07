@@ -8,13 +8,13 @@
 @prefix po: <https://purl.org/cco/person/> .
 @prefix postal: <https://purl.org/cco/postal-address/> .
 @prefix staging: <https://purl.org/cco/staging/> .
-@prefix paul: <http://www.example.org/paul#> .
+@prefix mia: <http://www.example.org/mia#> .
 
-# SHACL imports Paul's Application Ontology (which imports the domains)
+# Imports Mee Identity Agent (MIA)'s Application Ontology (which imports the domains)
 <http://www.example.org/shapes> rdf:type owl:Ontology ;
-    owl:imports <http://www.example.org/paul> ;
-    rdfs:label "Paul's SHACL Validation Shapes"@en ;
-    rdfs:comment """SHACL validation shapes for Paul's application.
+    owl:imports <http://www.example.org/mia> ;
+    rdfs:label "Mee Identity Agent (MIA)'s SHACL Validation Shapes"@en ;
+    rdfs:comment """SHACL validation shapes for the Mee Identty Agent.
                     
                     This file demonstrates validation against:
                     - Person Ontology terms
@@ -23,7 +23,7 @@
                     - CCO core terms (via full IRIs)
                     
                     IMPORTANT ARCHITECTURE CHANGE:
-                    Paul's original SHACL used hierarchical PersonName with has_part.
+                    The previous version of this file used hierarchical PersonName with has_part.
                     New architecture uses PEER NAMES with direct designated_by relationship.
                     All name types connect directly to Person, no intermediate PersonName.
                     
@@ -32,8 +32,8 @@
                     - ont00001765 = has text value (Identifier → literal string)
                     - BFO_0000178 = has continuant part (Address → components)
 
-                    NOTE ON "REQUIRED" TERMS (CHOICE 2):
-                    The PaulApplicationOntology marks some classes as "required" for the application schema.
+                    NOTE ON "REQUIRED" TERMS:
+                    This ontology marks some classes as "required" for the identity agent schema.
                     In this SHACL file, those terms are NOT required on every Person instance.
                     Instead, SHACL (a) enforces core name requirements for Person, and (b) validates SSN/email/phone/address
                     nodes when they are present and typed with the corresponding class.
