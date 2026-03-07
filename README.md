@@ -8,7 +8,8 @@ It defines a formal, machine-readable model of a real-world person's identity da
 
 ## Key components
 
-- **`persona.ttl`** — The core ontology file. It imports the IEEE Person Ontology (PO) and serves as the entry point.
+- **`persona.ttl`** — This application ontology extends IEEE Person Ontology (PO) PersonOntology, PostalAddressOntology, 
+                    and StagingOntology for the Mee IdAgent application
 
 - **`persona-shacl.ttl`** — SHACL (Shapes Constraint Language) rules that define *which* classes and properties are valid and *how* data must be structured. For example:
   - A `Person` must have designators (name, SSN, phone, email, address)
@@ -18,5 +19,5 @@ It defines a formal, machine-readable model of a real-world person's identity da
 
 - **`example.ttl`** — A concrete RDF instance of a person ("Margery Alice Walker", who goes by "Alice Walker") showing how the ontology is used in practice, with her name, SSN, phone, email, home address, height, and address tenure.
 
-- **`Person-Ontology-dev.ttl`** — A local copy of the upstream IEEE Person Ontology.
+
 
