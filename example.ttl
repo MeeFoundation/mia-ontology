@@ -12,16 +12,16 @@
 <http://www.example.org/mee> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/persona> ;
     rdfs:label "Alice Walker - Example Instance Data"@en ;
-    rdfs:comment """Example instance data for a hypothetical user, Alice Walker, of the Mee Identity Agent 
-                    demonstrating the Mee Foundation Persona Ontology in practice.
+    rdfs:comment """Example instance data for Alice Walker demonstrating the Mee Foundation 
+                    Persona Ontology in practice.
                     
                     Person Details:
-                    - Legal Name: Margery Alice Walker  
+                    - Legal Name: Margery Elizabeth Walker  
                     - Goes By: Alice Walker
                     - SSN: 123-45-6788
                     - Email: awalker@gmail.com
                     - Phone: +15108149999
-                    - Address: 123 Sleepy Hollow, Paradise, CA 95969, USA
+                    - Address: 123 Sleepy Hollow, Concord, CA 95969, USA (since Sept 2025)
                     - Eye Color: Blue
                     - Height: 68 inches
                     
@@ -30,7 +30,10 @@
                     - New properties (ont00001879 designated by, ont00001765 has text value)
                     - Slash URIs for all domain classes
                     - EyeColor extension usage
-                    - Structured postal address with BFO_0000178 (has continuant part)"""@en .
+                    - Structured postal address with BFO_0000178 (has continuant part)
+                    - Temporal tracking of address history (relocation event + ongoing residence)
+                    - CCO Act of Change of Residence (ont00000201)
+                    - Address Designation with temporal bounds"""@en .
 
 
 #################################################################
@@ -44,7 +47,7 @@
     rdfs:comment "Person instance demonstrating NEW architecture with peer names."@en ;
     
     # PEER NAMES (No hierarchical PersonName)
-    # Legal name: Margery Alice Walker
+    # Legal name: Margery Elizabeth Walker
     # Goes by: Alice Walker
     
     <https://purl.org/cco/ont00001879> [  # designated by → GivenName (legal first name)
@@ -90,7 +93,7 @@
     
     # POSTAL ADDRESS
     
-    <https://purl.org/cco/ont00001879> :Home_Address_Paradise ;  # designated by → Address
+    <https://purl.org/cco/ont00001879> :Home_Address_Concord ;  # designated by → Address
     
     # PHYSICAL CHARACTERISTICS
     
@@ -114,10 +117,10 @@
 #    US Postal Address Instance
 #################################################################
 
-###  Home Address: 123 Sleepy Hollow, Paradise, CA 95969, USA
-:Home_Address_Paradise rdf:type owl:NamedIndividual ,
+###  Home Address: 123 Sleepy Hollow, Concord, CA 95969, USA
+:Home_Address_Concord rdf:type owl:NamedIndividual ,
                                postal:USPostalAddress ;
-    rdfs:label "Home Address - Paradise, CA"@en ;
+    rdfs:label "Home Address - Concord, CA"@en ;
     rdfs:comment "Primary residential address using NEW architecture with has continuant part."@en ;
     
     # ADDRESS COMPONENTS (using BFO_0000178 has continuant part)
@@ -129,7 +132,7 @@
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → City
         rdf:type postal:CityName ;
-        <https://purl.org/cco/ont00001765> "Paradise"
+        <https://purl.org/cco/ont00001765> "Concord"
     ] ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → State
@@ -152,6 +155,53 @@
 
 
 #################################################################
+#    Temporal Regions - Address History
+#################################################################
+
+###  Temporal Instant: September 1, 2025 (Move Date)
+:Sept_1_2025 rdf:type owl:NamedIndividual ,
+                      <http://purl.obolibrary.org/obo/BFO_0000148> ;  # Zero-Dimensional Temporal Region (Instant)
+    rdfs:label "September 1, 2025"@en ;
+    rdfs:comment "The instant when Alice relocated to Concord"@en ;
+    <https://purl.org/cco/ont00001765> "2025-09-01"^^xsd:date .
+
+
+###  Temporal Interval: September 2025 to Present (Ongoing Residence)
+:Sept_2025_to_Present rdf:type owl:NamedIndividual ,
+                               <http://purl.obolibrary.org/obo/BFO_0000038> ;  # One-Dimensional Temporal Region (Interval)
+    rdfs:label "September 2025 to Present"@en ;
+    rdfs:comment "Open-ended interval indicating Alice still resides at this address"@en ;
+    postal:hasStartDate "2025-09-01"^^xsd:date .
+    # No postal:hasEndDate = still current/ongoing
+
+
+#################################################################
+#    Relocation and Address History Events
+#################################################################
+
+###  Act of Change of Residence: Alice's Move to Concord
+:Alices_Move_to_Concord rdf:type owl:NamedIndividual ,
+                                 <https://purl.org/cco/ont00000201> ;  # Act of Change of Residence (CCO)
+    rdfs:label "Alice's Relocation to Concord"@en ;
+    rdfs:comment """Alice physically relocated to 123 Sleepy Hollow, Concord, CA on September 1, 2025. 
+                    This is the physical move event, distinct from the ongoing residence."""@en ;
+    <http://purl.obolibrary.org/obo/BFO_0000139> :Alice_Walker ;  # has participant
+    <http://purl.obolibrary.org/obo/BFO_0000153> :Sept_1_2025 .  # occupies temporal region (instant)
+
+
+###  Address Designation: Alice's Ongoing Residence
+:Alices_Residence_at_Concord rdf:type owl:NamedIndividual ,
+                                      postal:AddressDesignation ;
+    rdfs:label "Alice's Residence at Concord Address"@en ;
+    rdfs:comment """Alice has resided at 123 Sleepy Hollow, Concord, CA from September 2025 to present. 
+                    This is the ongoing address designation, distinct from the one-time move event. 
+                    The absence of an end date indicates she still lives there."""@en ;
+    <http://purl.obolibrary.org/obo/BFO_0000139> :Alice_Walker ;  # has participant
+    <https://purl.org/cco/ont00001879> :Home_Address_Concord ;  # designated by (the address)
+    <http://purl.obolibrary.org/obo/BFO_0000153> :Sept_2025_to_Present .  # occupies temporal region (interval)
+
+
+#################################################################
 #    ARCHITECTURE COMPARISON NOTES
 #################################################################
 
@@ -161,7 +211,7 @@
 #
 # :PersonName_MargeryWalker rdf:type po:PersonName ;
 #     cco:has_part :GivenName_Margery ;
-#     cco:has_part :MiddleName_Alice ;
+#     cco:has_part :MiddleName_Elizabeth ;
 #     cco:has_part :FamilyName_Walker .
 #
 # :Alice_Walker cco:has_designator :PersonName_MargeryWalker .
@@ -201,3 +251,31 @@
 # EyeColor is a Mee-specific extension in persona.ttl
 # May be promoted to PersonOntology if proven useful
 # This demonstrates bottom-up innovation model
+
+
+# TEMPORAL TRACKING PATTERN:
+# ---------------------------
+# Address history is modeled with TWO separate concepts:
+#
+# 1. PHYSICAL RELOCATION (one-time event):
+#    - Class: ont00000201 (Act of Change of Residence) from CCO
+#    - Temporal: Occupies a TemporalInstant (the move date)
+#    - Example: :Alices_Move_to_Concord occupies :Sept_1_2025
+#
+# 2. ADDRESS DESIGNATION (ongoing process):
+#    - Class: postal:AddressDesignation from PostalAddressOntology
+#    - Temporal: Occupies a TemporalInterval with start/end dates
+#    - Open-ended: No end date = still current
+#    - Example: :Alices_Residence_at_Concord occupies :Sept_2025_to_Present
+#
+# This pattern supports:
+# - Multiple addresses over time (address history)
+# - Distinguishing move events from address associations
+# - Works for persons AND organizations
+# - Open-ended intervals signal "still current"
+#
+# Paul's Requirement Restored:
+# "Alice moved to her postal address in September 2025, and still lives there"
+# ✓ Move event: :Alices_Move_to_Concord on Sept 1, 2025
+# ✓ Ongoing residence: :Alices_Residence_at_Concord from Sept 2025 to present
+
