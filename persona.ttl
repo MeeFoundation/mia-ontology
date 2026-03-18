@@ -1,8 +1,6 @@
 @prefix : <http://mee.foundation/ontologies/persona#> .
 @prefix persona: <http://mee.foundation/ontologies/persona#> .
-@prefix po: <https://purl.org/cco/person/> .
-@prefix postal: <https://purl.org/cco/postal-address/> .
-@prefix staging: <https://purl.org/cco/staging/> .
+@prefix cco: <https://purl.org/cco/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,15 +11,15 @@
 @base <http://mee.foundation/ontologies/persona> .
 
 <http://mee.foundation/ontologies/persona> rdf:type owl:Ontology ;
-    owl:versionIRI <http://mee.foundation/ontologies/persona/2.1.0> ;
+    owl:versionIRI <http://mee.foundation/ontologies/persona/2.2.0> ;
     owl:imports <https://purl.org/cco/person> ;
     owl:imports <https://purl.org/cco/postal-address> ;
     owl:imports <https://purl.org/cco/staging> ;
-    dc:date "2026-02-27"^^xsd:date ;
-    owl:versionInfo "Version 2.1.0 - Added temporal address tracking documentation"@en ;
+    dc:date "2026-03-17"^^xsd:date ;
+    owl:versionInfo "Version 2.2.0 - Updated to opaque ent IRIs for domain ontology terms"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for Mee Foundation Identity Agent.
-                    
+                    0
                     This application ontology extends PersonOntology, PostalAddressOntology, 
                     and StagingOntology for identity management use cases.
                     
@@ -49,18 +47,18 @@
                     - Proper CCO properties (ont00001879, ont00001765, BFO_0000178)"""@en ;
     
     # Document which domain classes this application uses
-    persona:usesRequiredClass po:GivenName ,
-                              po:FamilyName ,
-                              po:SocialSecurityNumber ,
-                              postal:USPostalAddress ,
-                              staging:TelephoneNumber ,
-                              staging:EmailAddress ;
+    persona:usesRequiredClass cco:ent00000002 ,
+                              cco:ent00000004 ,
+                              cco:ent00000008 ,
+                              cco:ent00000010 ,
+                              cco:ent00000023 ,
+                              cco:ent00000024 ;
     
-    persona:usesOptionalClass po:FullName ,
-                              po:AdditionalName ,
-                              po:Suffix ,
-                              po:AlternateName ,
-                              postal:AddressDesignation ;
+    persona:usesOptionalClass cco:ent00000001 ,
+                              cco:ent00000003 ,
+                              cco:ent00000005 ,
+                              cco:ent00000006 ,
+                              cco:ent00000016 ;
     
     # Document CCO classes used directly (note: use full IRIs, not cco: prefix)
     persona:usesCCOClass <https://purl.org/cco/ont00001262> ,  # Person
@@ -118,40 +116,40 @@ persona:usagePattern rdf:type owl:AnnotationProperty ;
 #    Usage Pattern Documentation on Specific Classes
 #################################################################
 
-po:FullName
+cco:ent00000001
     persona:usagePattern """Mee accepts FullName as complete string alternative 
                             to structured components. SHACL validation: EITHER FullName OR 
                             (GivenName + FamilyName) required."""@en .
 
-po:GivenName
+cco:ent00000002
     persona:usagePattern """Legal first name. Required if FullName not provided. 
                             Multiple GivenNames allowed (e.g., 'Mary Anne')."""@en .
 
-po:FamilyName
+cco:ent00000004
     persona:usagePattern """Legal last/surname. Required if FullName not provided."""@en .
 
-po:AdditionalName
+cco:ent00000003
     persona:usagePattern """Middle names or additional given names. Optional. 
                             Use for names person goes by that aren't their legal first name."""@en .
 
-po:AlternateName
+cco:ent00000006
     persona:usagePattern """Any alternative form of the person's name (nicknames, 
                             preferred names, previous names). Optional."""@en .
 
-po:SocialSecurityNumber
+cco:ent00000008
     persona:usagePattern """US SSN in format NNN-NN-NNNN. Required for identity verification."""@en .
 
-postal:USPostalAddress
+cco:ent00000010
     persona:usagePattern """Primary residential address. Required. Must include street, 
                             city, state, ZIP. Country optional."""@en .
 
-staging:EmailAddress
+cco:ent00000024
     persona:usagePattern """Primary email address. Required for account access."""@en .
 
-staging:TelephoneNumber
+cco:ent00000023
     persona:usagePattern """Primary phone number. Required. Prefer E.164 format."""@en .
 
-postal:AddressDesignation
+cco:ent00000016
     persona:usagePattern """Used to track address history with temporal bounds. Each designation 
                             represents a person living at an address during a specific time period. 
                             Use BFO 'occupies temporal region' to specify the time interval with 

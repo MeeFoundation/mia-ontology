@@ -1,8 +1,6 @@
 @prefix : <http://www.example.org/mee#> .
 @prefix persona: <http://mee.foundation/ontologies/persona#> .
-@prefix po: <https://purl.org/cco/person/> .
-@prefix postal: <https://purl.org/cco/postal-address/> .
-@prefix staging: <https://purl.org/cco/staging/> .
+@prefix cco: <https://purl.org/cco/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -50,22 +48,22 @@
     # Goes by: Alice Walker
     
     <https://purl.org/cco/ont00001879> [  # designated by → GivenName (legal first name)
-        rdf:type po:GivenName ;
+        rdf:type cco:ent00000002 ;
         <https://purl.org/cco/ont00001765> "Margery"  # has text value
     ] ;
     
     <https://purl.org/cco/ont00001879> [  # designated by → AdditionalName (middle name)
-        rdf:type po:AdditionalName ;
+        rdf:type cco:ent00000003 ;
         <https://purl.org/cco/ont00001765> "Elizabeth"
     ] ;
     
     <https://purl.org/cco/ont00001879> [  # designated by → FamilyName
-        rdf:type po:FamilyName ;
+        rdf:type cco:ent00000004 ;
         <https://purl.org/cco/ont00001765> "Walker"
     ] ;
     
     <https://purl.org/cco/ont00001879> [  # designated by → AlternateName (goes by)
-        rdf:type po:AlternateName ;
+        rdf:type cco:ent00000006 ;
         <https://purl.org/cco/ont00001765> "Alice Walker" ;
         rdfs:comment "Name she goes by professionally and socially"@en
     ] ;
@@ -73,19 +71,19 @@
     # IDENTIFIERS
     
     <https://purl.org/cco/ont00001879> [  # designated by → SSN
-        rdf:type po:SocialSecurityNumber ;
+        rdf:type cco:ent00000008 ;
         <https://purl.org/cco/ont00001765> "123-45-6788"
     ] ;
     
     # CONTACT INFORMATION
     
     <https://purl.org/cco/ont00001879> [  # designated by → Email
-        rdf:type staging:EmailAddress ;
+        rdf:type cco:ent00000024 ;
         <https://purl.org/cco/ont00001765> "awalker@gmail.com"
     ] ;
     
     <https://purl.org/cco/ont00001879> [  # designated by → Phone
-        rdf:type staging:TelephoneNumber ;
+        rdf:type cco:ent00000023 ;
         <https://purl.org/cco/ont00001765> "+15108149999" ;
         rdfs:comment "E.164 format (international standard)"@en
     ] ;
@@ -118,7 +116,7 @@
 
 ###  Previous Address: Boston (2020-2025)
 :Boston_Residence rdf:type owl:NamedIndividual ,
-                           postal:AddressDesignation ;
+                           cco:ent00000016 ;
     rdfs:label "Alice's Boston Residence (2020-2025)"@en ;
     rdfs:comment "Alice lived at this Boston address from 2020 to 2025."@en ;
     <http://purl.obolibrary.org/obo/BFO_0000139> :Alice_Walker ;  # has participant
@@ -128,33 +126,33 @@
 :Interval_2020_2025 rdf:type owl:NamedIndividual ,
                              <http://purl.obolibrary.org/obo/BFO_0000038> ;  # TemporalInterval
     rdfs:label "2020-2025"@en ;
-    postal:hasStartDate "2020-01-01"^^xsd:date ;
-    postal:hasEndDate "2025-08-31"^^xsd:date .
+    cco:ent00000017 "2020-01-01"^^xsd:date ;
+    cco:ent00000018 "2025-08-31"^^xsd:date .
 
 :Address_Boston rdf:type owl:NamedIndividual ,
-                         postal:USPostalAddress ;
+                         cco:ent00000010 ;
     rdfs:label "Boston Address"@en ;
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → Street
-        rdf:type postal:StreetAddress ;
+        rdf:type cco:ent00000011 ;
         <https://purl.org/cco/ont00001765> "456 Commonwealth Ave"
     ] ;
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → City
-        rdf:type postal:CityName ;
+        rdf:type cco:ent00000012 ;
         <https://purl.org/cco/ont00001765> "Boston"
     ] ;
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → State
-        rdf:type postal:StateName ;
+        rdf:type cco:ent00000013 ;
         <https://purl.org/cco/ont00001765> "MA"
     ] ;
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → ZIP
-        rdf:type postal:PostalCode ;
+        rdf:type cco:ent00000015 ;
         <https://purl.org/cco/ont00001765> "02215"
     ] .
 
 
 ###  Current Address: Concord (2025-present)
 :Concord_Residence rdf:type owl:NamedIndividual ,
-                            postal:AddressDesignation ;
+                            cco:ent00000016 ;
     rdfs:label "Alice's Concord Residence (2025-present)"@en ;
     rdfs:comment "Alice has lived at this Concord address since September 2025. No end date indicates current residence."@en ;
     <http://purl.obolibrary.org/obo/BFO_0000139> :Alice_Walker ;  # has participant
@@ -165,37 +163,37 @@
                                 <http://purl.obolibrary.org/obo/BFO_0000038> ;  # TemporalInterval
     rdfs:label "September 2025 to present"@en ;
     rdfs:comment "Open-ended interval - absence of end date indicates current/ongoing"@en ;
-    postal:hasStartDate "2025-09-01"^^xsd:date .
-    # No postal:hasEndDate = still current
+    cco:ent00000017 "2025-09-01"^^xsd:date .
+    # No cco:ent00000018 = still current
 
 
 ###  Concord Address Details
 :Address_Concord rdf:type owl:NamedIndividual ,
-                          postal:USPostalAddress ;
+                          cco:ent00000010 ;
     rdfs:label "Concord Address"@en ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → Street
-        rdf:type postal:StreetAddress ;
+        rdf:type cco:ent00000011 ;
         <https://purl.org/cco/ont00001765> "123 Sleepy Hollow"
     ] ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → City
-        rdf:type postal:CityName ;
+        rdf:type cco:ent00000012 ;
         <https://purl.org/cco/ont00001765> "Concord"
     ] ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → State
-        rdf:type postal:StateName ;
+        rdf:type cco:ent00000013 ;
         <https://purl.org/cco/ont00001765> "CA"
     ] ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → ZIP
-        rdf:type postal:PostalCode ;
+        rdf:type cco:ent00000015 ;
         <https://purl.org/cco/ont00001765> "95969"
     ] ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → Country
-        rdf:type postal:CountryName ;
+        rdf:type cco:ent00000014 ;
         <https://purl.org/cco/ont00001765> "USA"
     ] .
 
