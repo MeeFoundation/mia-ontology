@@ -11,26 +11,26 @@
 @base <http://mee.foundation/ontologies/persona> .
 
 <http://mee.foundation/ontologies/persona> rdf:type owl:Ontology ;
-    owl:versionIRI <http://mee.foundation/ontologies/persona/2.2.0> ;
+    owl:versionIRI <http://mee.foundation/ontologies/persona/2.3.0> ;
     owl:imports <https://purl.org/cco/person> ;
-    owl:imports <https://purl.org/cco/postal-address> ;
+    owl:imports <https://purl.org/cco/address> ;
     owl:imports <https://purl.org/cco/staging> ;
-    dc:date "2026-03-17"^^xsd:date ;
-    owl:versionInfo "Version 2.2.0 - Updated to opaque ent IRIs for domain ontology terms"@en ;
+    dc:date "2026-03-22"^^xsd:date ;
+    owl:versionInfo "Version 2.3.0 - Updated import to AddressOntology; removed EyeColor pending pilot"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for Mee Foundation Identity Agent.
                     0
-                    This application ontology extends PersonOntology, PostalAddressOntology, 
+                    This application ontology extends PersonOntology, AddressOntology, 
                     and StagingOntology for identity management use cases.
                     
                     ARCHITECTURE:
                     This application ontology serves as:
                     1. Aggregation point (imports 3 domain ontologies)
                     2. Documentation (annotations show which classes Mee uses)
-                    3. Extension point (Mee-specific terms: EyeColor, future: accounts, service providers)
+                    3. Extension point (Mee-specific terms: future: accounts, service providers)
                     
                     GOVERNANCE MODEL:
-                    - Domain ontologies (Person, PostalAddress, Staging): Import unchanged
+                    - Domain ontologies (Person, Address, Staging): Import unchanged
                     - Mee extensions: Added here, may be promoted to domain ontologies if proven useful
                     - Application-specific patterns documented via usage annotations
                     
@@ -39,7 +39,6 @@
                     - Slash URIs (content negotiation enabled)
                     - International standards alignment (Schema.org, FHIR, OpenID)
                     - Address history tracking (N addresses over lifetime with temporal bounds)
-                    - Physical characteristics (EyeColor - may be promoted to PersonOntology)
                     
                     MIGRATION NOTE:
                     This version uses the NEW PersonOntology architecture (v2.0) with:
@@ -155,86 +154,3 @@ cco:ent00000016
                             Use BFO 'occupies temporal region' to specify the time interval with 
                             start and optional end dates. An open-ended interval (no end date) 
                             indicates current address. Supports N addresses over a person's lifetime."""@en .
-
-
-#################################################################
-#    Mee-Specific Extension Classes
-#################################################################
-
-###  http://mee.foundation/ontologies/persona#EyeColor
-persona:EyeColor rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00001835> ;  # Quality
-    rdfs:label "Eye Color"@en ;
-    skos:definition """A quality that inheres in a person's eyes and is manifested 
-                       as a perceived color."""@en ;
-    rdfs:comment """Eye color is a physical characteristic used for identification 
-                    and description purposes. This is a Mee-specific extension that 
-                    may be promoted to PersonOntology if proven useful to the broader 
-                    community."""@en ;
-    persona:usagePattern """Used to document physical appearance for identity verification. 
-                            Value should be one of the 6 standard eye color subclasses."""@en .
-
-
-#################################################################
-#    Eye Color Subclasses (Controlled Vocabulary)
-#################################################################
-
-###  http://mee.foundation/ontologies/persona#AmberEyeColor
-persona:AmberEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Amber Eye Color"@en ;
-    skos:definition "An eye color characterized by a solid golden or copper hue."@en .
-
-###  http://mee.foundation/ontologies/persona#BlueEyeColor
-persona:BlueEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Blue Eye Color"@en ;
-    skos:definition "An eye color characterized by blue pigmentation."@en .
-
-###  http://mee.foundation/ontologies/persona#BrownEyeColor
-persona:BrownEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Brown Eye Color"@en ;
-    skos:definition "An eye color characterized by brown pigmentation."@en .
-
-###  http://mee.foundation/ontologies/persona#GrayEyeColor
-persona:GrayEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Gray Eye Color"@en ;
-    skos:definition "An eye color characterized by gray pigmentation."@en .
-
-###  http://mee.foundation/ontologies/persona#GreenEyeColor
-persona:GreenEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Green Eye Color"@en ;
-    skos:definition "An eye color characterized by green pigmentation."@en .
-
-###  http://mee.foundation/ontologies/persona#HazelEyeColor
-persona:HazelEyeColor rdf:type owl:Class ;
-    rdfs:subClassOf persona:EyeColor ;
-    rdfs:label "Hazel Eye Color"@en ;
-    skos:definition "An eye color characterized by a combination of brown and green pigmentation."@en .
-
-
-#################################################################
-#    EXTENSION NOTES
-#################################################################
-
-# EyeColor Extension (February 2026):
-# This is a Mee-specific extension demonstrating the proper governance model.
-# 
-# Current State:
-# - Lives in persona.ttl as application-specific extension
-# - Uses Mee Foundation namespace
-# - Subclass of CCO Quality (ont00001835)
-#
-# Future State (March 2026+):
-# - If proven useful, may be promoted to PersonOntology
-# - Would then use purl.org/cco/person/ namespace
-# - Mee would update import and remove local definition
-# - Same structure preserved (smooth migration)
-#
-# This demonstrates:
-# - Bottom-up innovation (applications extend)
-# - Top-down quality control (domain ontologies standardize)
-# - Community-driven development model

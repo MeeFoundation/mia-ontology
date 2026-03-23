@@ -20,14 +20,12 @@
                     - Email: awalker@gmail.com
                     - Phone: +15108149999
                     - Current Address: 123 Sleepy Hollow, Concord, CA 95969, USA (since Sept 2025)
-                    - Eye Color: Blue
                     - Height: 68 inches
                     
                     DEMONSTRATES:
                     - Peer name architecture (GivenName, AdditionalName, FamilyName as peers)
                     - New properties (ont00001879 designated by, ont00001765 has text value)
                     - Slash URIs for all domain classes
-                    - EyeColor extension usage
                     - Structured postal address with BFO_0000178 (has continuant part)
                     - Address history tracking with temporal intervals
                     - Open-ended intervals for current address"""@en .
@@ -102,11 +100,6 @@
             <https://purl.org/cco/ont00001765> "68"^^xsd:decimal ;
             <https://purl.org/cco/ont00001729> <http://purl.obolibrary.org/obo/UO_0000010>  # inch
         ]
-    ] ;
-    
-    <http://purl.obolibrary.org/obo/BFO_0000196> [  # bearer of → Eye Color
-        rdf:type persona:BlueEyeColor ;
-        rdfs:comment "Eye color: Blue (using Mee extension class)"@en
     ] .
 
 
