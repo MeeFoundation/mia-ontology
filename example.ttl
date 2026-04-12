@@ -10,14 +10,15 @@
 <http://www.example.org/mee> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/persona> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.1 - added eye color (blue and grey hair color"@en ;
+    owl:versionInfo "Version 3.0.2 - maiden name"@en ;
     rdfs:label "Alice Walker - Example Instance Data"@en ;
     rdfs:comment """Example instance data for Alice Walker demonstrating the Mee Foundation 
                     Persona Ontology in practice.
                     
                     Person Details:
-                    - Legal Name: Margery Elizabeth Walker  
+                    - Legal Name: Margery Alice Walker  
                     - Goes By: Alice Walker
+                    - Maiden Name: Margery Alice Arnold
                     - SSN: 123-45-6788
                     - Email: awalker@gmail.com
                     - Phone: +15108149999
@@ -28,6 +29,7 @@
                     
                     DEMONSTRATES:
                     - Peer name architecture (GivenName, AdditionalName, FamilyName as peers)
+                    - Maiden name represented as AlternateName (covers former legal names per CCO scope note)
                     - New properties (ont00001879 designated by, ont00001765 has text value)
                     - Slash URIs for all domain classes
                     - Structured postal address with BFO_0000178 (has continuant part)
@@ -46,7 +48,7 @@
     rdfs:comment "Person instance demonstrating peer name architecture and address history."@en ;
     
     # PEER NAMES (No hierarchical PersonName)
-    # Legal name: Margery Elizabeth Walker
+    # Legal name: Margery Alice Walker
     # Goes by: Alice Walker
     
     <https://purl.org/cco/ont00001879> [  # designated by → GivenName (legal first name)
@@ -56,7 +58,7 @@
     
     <https://purl.org/cco/ont00001879> [  # designated by → AdditionalName (middle name)
         rdf:type cco:ent00000003 ;
-        <https://purl.org/cco/ont00001765> "Elizabeth"
+        <https://purl.org/cco/ont00001765> "Alice"
     ] ;
     
     <https://purl.org/cco/ont00001879> [  # designated by → FamilyName
@@ -68,6 +70,12 @@
         rdf:type cco:ent00000006 ;
         <https://purl.org/cco/ont00001765> "Alice Walker" ;
         rdfs:comment "Name she goes by professionally and socially"@en
+    ] ;
+
+    <https://purl.org/cco/ont00001879> [  # designated by → AlternateName (maiden name)
+        rdf:type cco:ent00000006 ;
+        <https://purl.org/cco/ont00001765> "Margery Alice Arnold" ;
+        rdfs:comment "Maiden name (former legal name before marriage)"@en
     ] ;
     
     # IDENTIFIERS
