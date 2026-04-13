@@ -55,6 +55,18 @@ Classes and properties use numeric IRIs. The most common:
 - `ent00000010` = PostalAddress; `ent00000016` = AddressDesignation
 - `BFO_0000038` = TemporalInterval; `ent00000017/18` = hasStartDate/hasEndDate
 
+## Versioning
+
+Before committing any change to `example.ttl`, `persona.ttl`, or `persona-shacl.ttl`, increment the **minor version number** in that file's `owl:versionInfo` annotation and update the description to summarise the change. For example:
+
+```
+owl:versionInfo "Version 3.0.3 - added social network"@en
+```
+becomes:
+```
+owl:versionInfo "Version 3.0.4 - added birth date"@en
+```
+
 ## Keeping Files in Sync
 
 Whenever changes are made to `example.ttl` or `persona.ttl`, `persona-shacl.ttl` must be updated to match:

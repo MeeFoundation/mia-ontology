@@ -16,7 +16,7 @@
     owl:imports <https://purl.org/cco/address> ;
     owl:imports <https://purl.org/cco/staging> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.0 - changed only the version number to reflect version 3 of the Mee Identity Agent"@en ;
+    owl:versionInfo "Version 3.0.1 - added persona:hasSocialNetwork property"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for Mee Foundation Identity Agent.
                     
