@@ -11,7 +11,7 @@
 <http://www.example.org/mee> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/persona> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.3 - social network, parent/child relationship"@en ;
+    owl:versionInfo "Version 3.0.4 - fix hair color modeling (inheres in ScalpHair, not Person)"@en ;
     rdfs:label "Alice Walker - Example Instance Data"@en ;
     rdfs:comment """Example instance data for Alice Walker demonstrating the Mee Foundation 
                     Persona Ontology in practice.
@@ -123,10 +123,13 @@
         rdfs:comment "Eye color: Blue"@en
     ] ;
 
-    <http://purl.obolibrary.org/obo/BFO_0000196> [  # bearer of → Hair Color
-        rdf:type cco:ont00000026 ;  # Hair Color
-        <https://purl.org/cco/ont00001765> "grey" ;  # has text value
-        rdfs:comment "Hair color: Grey"@en
+    <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → Scalp Hair
+        rdf:type cco:ont00000058 ;  # Scalp Hair
+        <http://purl.obolibrary.org/obo/BFO_0000196> [  # bearer of → Hair Color
+            rdf:type cco:ont00000026 ;  # Hair Color
+            <https://purl.org/cco/ont00001765> "Grey" ;  # has text value
+            rdfs:comment "Hair color: Grey"@en
+        ]
     ] ;
 
     # FAMILY RELATIONSHIPS

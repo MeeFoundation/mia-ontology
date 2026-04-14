@@ -12,7 +12,7 @@
 # Imports Mee Identity Agent (MIA)'s Application Ontology (which imports the domains)
 <http://www.example.org/shapes> rdf:type owl:Ontology ;
     owl:imports <http://www.example.org/mia> ;
-    owl:versionInfo "Version 3.0.1 - added shapes for hair color, AlternateName, social network, and mother/child relationships"@en ;
+    owl:versionInfo "Version 3.0.2 - fix hair color shape (ScalpHair intermediary); add ScalpHairShape"@en ;
     rdfs:label "Mee Identity Agent (MIA)'s SHACL Validation Shapes"@en ;
     rdfs:comment """SHACL validation shapes for the Mee Identty Agent.
                     
@@ -142,12 +142,12 @@
         sh:message "USPostalAddress is optional; if present and typed, it must validate."@en
     ] ;
 
-    # Optional: hair color (0..1). Validity enforced by :HairColorShape.
+    # Optional: scalp hair (0..1), which in turn bears the hair color.
     sh:property [
-        sh:path <http://purl.obolibrary.org/obo/BFO_0000196> ;  # bearer of
-        sh:qualifiedValueShape [ sh:class cco:ont00000026 ] ;  # Hair Color
+        sh:path <http://purl.obolibrary.org/obo/BFO_0000178> ;  # has continuant part
+        sh:qualifiedValueShape [ sh:class cco:ont00000058 ] ;  # Scalp Hair
         sh:qualifiedMaxCount 1 ;
-        sh:message "At most one HairColor may be asserted on a Person."@en
+        sh:message "At most one ScalpHair continuant part may be asserted on a Person."@en
     ] ;
 
     # Optional: mother relationship (0..many). Range must be a Person.
@@ -333,8 +333,22 @@
     ] .
 
 #################################################################
-#  Hair Color validation
+#  Scalp Hair / Hair Color validation
+#  Hair Color inheres in a portion of Scalp Hair, not directly in the Person.
+#  Pattern: Person -[has continuant part]-> ScalpHair -[bearer of]-> HairColor
 #################################################################
+
+:ScalpHairShape
+    a sh:NodeShape ;
+    sh:targetClass cco:ont00000058 ;  # Scalp Hair
+    sh:message "ScalpHair must bear exactly one HairColor with a non-empty text value."@en ;
+    sh:property [
+        sh:path <http://purl.obolibrary.org/obo/BFO_0000196> ;  # bearer of
+        sh:qualifiedValueShape [ sh:class cco:ont00000026 ] ;  # Hair Color
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "ScalpHair must bear exactly one HairColor."@en
+    ] .
 
 :HairColorShape
     a sh:NodeShape ;
