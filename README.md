@@ -32,7 +32,7 @@ Built on **BFO** (Basic Formal Ontology) and **CCO** (Common Core Ontologies), s
   - Addresses: current (Paradise, CA, 2025–present) and previous (Boston, MA, 2020–2025) with temporal intervals
   - Physical characteristics: height (68 in), eye color (blue), hair color (grey)
   - Family: son Paul Walker, linked via CCO `is mother of` / `has mother`
-  - Social network: Alice's set of connections modeled as a CCO Social Network
+  - Social network: partitioned into Family, Colleague, and Other sub-groups (CCO Social Networks linked via BFO `has part`), with Paul Walker in both Family and Colleague to demonstrate intersection
 
 ## Architecture
 
