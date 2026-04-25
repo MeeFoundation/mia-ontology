@@ -24,7 +24,7 @@ Built on **BFO** (Basic Formal Ontology) and **CCO** (Common Core Ontologies), s
   - Address: required street, city, state (USPS 2-letter), ZIP; optional country
   - Physical characteristics: hair color (text value), eye color
   - Family relationships: `is mother of` / `has mother` range must be a Person
-  - Social network: optional (0..1), members must be Persons
+  - Social network: optional (0..1); sub-groups (via `has part`) must be Social Networks; members (via `has member part`) must be Persons
 
 - **`example.ttl`** — A concrete RDF instance for "Margery Alice Walker" (goes by "Alice Walker") demonstrating the ontology in practice:
   - Names: legal name, middle name, preferred name, maiden name (Margery Alice Arnold)
