@@ -18,7 +18,7 @@
     dc:date "2026-04-12"^^xsd:date ;
     owl:versionInfo "Version 3.0.1 - added persona:hasSocialNetwork property"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
-    rdfs:comment """Persona Ontology for Mee Foundation Identity Agent.
+    rdfs:comment """Persona Ontology for the Mee Identity Agent.
                     
                     This application ontology extends PersonOntology, AddressOntology, 
                     and StagingOntology for identity management use cases.
@@ -26,12 +26,12 @@
                     ARCHITECTURE:
                     This application ontology serves as:
                     1. Aggregation point (imports 3 domain ontologies)
-                    2. Documentation (annotations show which classes Mee uses)
-                    3. Extension point (Mee-specific terms: future: accounts, service providers)
+                    2. Documentation (annotations show which classes Persona uses)
+                    3. Extension point (Persona-specific terms: future: accounts, service providers)
                     
                     GOVERNANCE MODEL:
                     - Domain ontologies (Person, Address, Staging): Import unchanged
-                    - Mee extensions: Added here, may be promoted to domain ontologies if proven useful
+                    - Persona extensions: Added here, may be promoted to domain ontologies if proven useful
                     - Application-specific patterns documented via usage annotations
                     
                     FEATURES:
@@ -80,14 +80,14 @@
 persona:usesRequiredClass rdf:type owl:AnnotationProperty ;
     rdfs:label "uses required class"@en ;
     rdfs:comment """Indicates a class from domain ontologies that this application REQUIRES.
-                    These classes are mandatory in Mee's SHACL validation."""@en ;
+                    These classes are mandatory in Persona's SHACL validation."""@en ;
     rdfs:domain owl:Ontology ;
     rdfs:range owl:Class .
 
 persona:usesOptionalClass rdf:type owl:AnnotationProperty ;
     rdfs:label "uses optional class"@en ;
     rdfs:comment """Indicates a class from domain ontologies that this application OPTIONALLY uses.
-                    These classes are allowed but not required in Mee's SHACL validation."""@en ;
+                    These classes are allowed but not required in Persona's SHACL validation."""@en ;
     rdfs:domain owl:Ontology ;
     rdfs:range owl:Class .
 
@@ -124,7 +124,7 @@ persona:hasSocialNetwork rdf:type owl:ObjectProperty ;
 #################################################################
 
 cco:ent00000001
-    persona:usagePattern """Mee accepts FullName as complete string alternative 
+    persona:usagePattern """Persona accepts FullName as complete string alternative 
                             to structured components. SHACL validation: EITHER FullName OR 
                             (GivenName + FamilyName) required."""@en .
 
