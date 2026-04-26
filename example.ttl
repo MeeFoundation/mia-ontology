@@ -11,7 +11,7 @@
 <http://www.example.org/mee> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/persona> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.8 - add FounderOfXYZ and EmployeeOfAcme career role instances"@en ;
+    owl:versionInfo "Version 3.0.9 - add XYZ_Corp organization; link FounderOfXYZ via roleInOrganization"@en ;
     rdfs:label "Alice Walker - Example Instance Data"@en ;
     rdfs:comment """Example instance data for Alice Walker demonstrating the Mee Foundation 
                     Persona Ontology in practice.
@@ -35,6 +35,7 @@
                     - Parent/child relationships using CCO AgentOntology properties (is parent of / is child of)
                     - Social network partitioned into Family, Friends, Colleagues, Other sub-groups (BFO has part) with possible intersection
                     - Career roles: FounderOfXYZ (persona:Founder) and EmployeeOfAcme (persona:Employee) inhering in Alice
+                    - Organizations: XYZ Corp linked to FounderOfXYZ via persona:roleInOrganization
                     - New properties (ont00001879 designated by, ont00001765 has text value)
                     - Slash URIs for all domain classes
                     - Structured postal address with BFO_0000178 (has continuant part)
@@ -288,10 +289,15 @@
 #    Career Roles
 #################################################################
 
+:XYZ_Corp rdf:type owl:NamedIndividual ,
+                   persona:Organization ;
+    rdfs:label "XYZ Corp"@en .
+
 :FounderOfXYZ rdf:type owl:NamedIndividual ,
                        persona:Founder ;
     rdfs:label "Founder of XYZ"@en ;
-    <http://purl.obolibrary.org/obo/BFO_0000197> :Alice_Walker .  # inheres in
+    <http://purl.obolibrary.org/obo/BFO_0000197> :Alice_Walker ;  # inheres in
+    persona:roleInOrganization :XYZ_Corp .
 
 :EmployeeOfAcme rdf:type owl:NamedIndividual ,
                          persona:Employee ;

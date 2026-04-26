@@ -12,7 +12,7 @@
 # Imports Mee Identity Agent (MIA)'s Application Ontology (which imports the domains)
 <http://www.example.org/shapes> rdf:type owl:Ontology ;
     owl:imports <http://www.example.org/mia> ;
-    owl:versionInfo "Version 3.0.4 - add CareerRoleShape"@en ;
+    owl:versionInfo "Version 3.0.5 - extend CareerRoleShape with roleInOrganization; add OrganizationShape"@en ;
     rdfs:label "Mee Identity Agent (MIA)'s SHACL Validation Shapes"@en ;
     rdfs:comment """SHACL validation shapes for the Mee Identty Agent.
                     
@@ -412,11 +412,32 @@
 :CareerRoleShape
     a sh:NodeShape ;
     sh:targetClass persona:CareerRole ;
-    sh:message "CareerRole must inhere in exactly one Person."@en ;
+    sh:message "CareerRole must inhere in exactly one Person; roleInOrganization must point to an Organization."@en ;
     sh:property [
         sh:path <http://purl.obolibrary.org/obo/BFO_0000197> ;  # inheres in
         sh:class <https://purl.org/cco/ont00001262> ;  # Person
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "A CareerRole must inhere in exactly one Person."@en
+    ] ;
+    sh:property [
+        sh:path persona:roleInOrganization ;
+        sh:class persona:Organization ;
+        sh:maxCount 1 ;
+        sh:message "roleInOrganization, if present, must point to an Organization."@en
+    ] .
+
+#################################################################
+#  Organization validation
+#################################################################
+
+:OrganizationShape
+    a sh:NodeShape ;
+    sh:targetClass persona:Organization ;
+    sh:message "Organization must have an rdfs:label."@en ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "An Organization must have at least one rdfs:label."@en
     ] .

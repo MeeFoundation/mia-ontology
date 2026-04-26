@@ -16,7 +16,7 @@
     owl:imports <https://purl.org/cco/address> ;
     owl:imports <https://purl.org/cco/staging> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.3 - added Founder, Employee, Advisor, Contributor subclasses of CareerRole"@en ;
+    owl:versionInfo "Version 3.0.4 - add Organization class and roleInOrganization property"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for the Mee Identity Agent.
                     
@@ -110,6 +110,11 @@ persona:usagePattern rdf:type owl:AnnotationProperty ;
     rdfs:comment """Describes how this application uses a particular class or property."""@en ;
     rdfs:domain owl:Class .
 
+persona:Organization rdf:type owl:Class ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000027> ;  # BFO:Object Aggregate
+    rdfs:label "Organization"@en ;
+    rdfs:comment "A group of agents acting collectively toward shared goals (e.g., company, non-profit). May be aligned to a CCO Organization class when the IRI is confirmed."@en .
+
 persona:CareerRole rdf:type owl:Class ;
     rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;  # BFO:Role
     rdfs:label "Career Role"@en ;
@@ -134,6 +139,13 @@ persona:Contributor rdf:type owl:Class ;
     rdfs:subClassOf persona:CareerRole ;
     rdfs:label "Contributor"@en ;
     rdfs:comment "A career role played by a person who contributes to a project or organization without being a full employee."@en .
+
+
+persona:roleInOrganization rdf:type owl:ObjectProperty ;
+    rdfs:domain persona:CareerRole ;
+    rdfs:range persona:Organization ;
+    rdfs:label "role in organization"@en ;
+    rdfs:comment "Links a CareerRole instance to the organization in which that role is played."@en .
 
 
 persona:hasSocialNetwork rdf:type owl:ObjectProperty ;
