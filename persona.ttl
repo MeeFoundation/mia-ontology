@@ -16,7 +16,7 @@
     owl:imports <https://purl.org/cco/address> ;
     owl:imports <https://purl.org/cco/staging> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.1 - added persona:hasSocialNetwork property"@en ;
+    owl:versionInfo "Version 3.0.2 - added persona:CareerRole class"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for the Mee Identity Agent.
                     
@@ -109,6 +109,12 @@ persona:usagePattern rdf:type owl:AnnotationProperty ;
     rdfs:label "usage pattern"@en ;
     rdfs:comment """Describes how this application uses a particular class or property."""@en ;
     rdfs:domain owl:Class .
+
+persona:CareerRole rdf:type owl:Class ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;  # BFO:Role
+    rdfs:label "Career Role"@en ;
+    rdfs:comment "A role that a person plays in the context of their professional career (e.g., founder, employee)."@en .
+
 
 persona:hasSocialNetwork rdf:type owl:ObjectProperty ;
     rdfs:domain <https://purl.org/cco/ont00001262> ;  # Person

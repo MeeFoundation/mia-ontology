@@ -12,7 +12,7 @@
 # Imports Mee Identity Agent (MIA)'s Application Ontology (which imports the domains)
 <http://www.example.org/shapes> rdf:type owl:Ontology ;
     owl:imports <http://www.example.org/mia> ;
-    owl:versionInfo "Version 3.0.3 - extend SocialNetworkShape for has-part sub-groups (Family, Colleague, Other)"@en ;
+    owl:versionInfo "Version 3.0.4 - add CareerRoleShape"@en ;
     rdfs:label "Mee Identity Agent (MIA)'s SHACL Validation Shapes"@en ;
     rdfs:comment """SHACL validation shapes for the Mee Identty Agent.
                     
@@ -403,4 +403,20 @@
         sh:path <http://purl.obolibrary.org/obo/BFO_0000115> ;  # has member part
         sh:class <https://purl.org/cco/ont00001262> ;  # Person
         sh:message "All Social Network member parts must be Persons."@en
+    ] .
+
+#################################################################
+#  Career Role validation
+#################################################################
+
+:CareerRoleShape
+    a sh:NodeShape ;
+    sh:targetClass persona:CareerRole ;
+    sh:message "CareerRole must inhere in exactly one Person."@en ;
+    sh:property [
+        sh:path <http://purl.obolibrary.org/obo/BFO_0000197> ;  # inheres in
+        sh:class <https://purl.org/cco/ont00001262> ;  # Person
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A CareerRole must inhere in exactly one Person."@en
     ] .
