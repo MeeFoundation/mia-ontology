@@ -11,7 +11,7 @@
 <http://www.example.org/mee> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/persona> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.9 - add XYZ_Corp organization; link FounderOfXYZ via roleInOrganization"@en ;
+    owl:versionInfo "Version 3.0.10 - replace persona:Organization with cco:ont00001180 on XYZ_Corp"@en ;
     rdfs:label "Alice Walker - Example Instance Data"@en ;
     rdfs:comment """Example instance data for Alice Walker demonstrating the Mee Foundation 
                     Persona Ontology in practice.
@@ -290,7 +290,7 @@
 #################################################################
 
 :XYZ_Corp rdf:type owl:NamedIndividual ,
-                   persona:Organization ;
+                   cco:ont00001180 ;  # Organization (CCO)
     rdfs:label "XYZ Corp"@en .
 
 :FounderOfXYZ rdf:type owl:NamedIndividual ,

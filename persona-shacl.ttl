@@ -12,7 +12,7 @@
 # Imports Mee Identity Agent (MIA)'s Application Ontology (which imports the domains)
 <http://www.example.org/shapes> rdf:type owl:Ontology ;
     owl:imports <http://www.example.org/mia> ;
-    owl:versionInfo "Version 3.0.5 - extend CareerRoleShape with roleInOrganization; add OrganizationShape"@en ;
+    owl:versionInfo "Version 3.0.6 - replace persona:Organization with cco:ont00001180 in shapes"@en ;
     rdfs:label "Mee Identity Agent (MIA)'s SHACL Validation Shapes"@en ;
     rdfs:comment """SHACL validation shapes for the Mee Identty Agent.
                     
@@ -422,7 +422,7 @@
     ] ;
     sh:property [
         sh:path persona:roleInOrganization ;
-        sh:class persona:Organization ;
+        sh:class cco:ont00001180 ;  # Organization (CCO)
         sh:maxCount 1 ;
         sh:message "roleInOrganization, if present, must point to an Organization."@en
     ] .
@@ -433,7 +433,7 @@
 
 :OrganizationShape
     a sh:NodeShape ;
-    sh:targetClass persona:Organization ;
+    sh:targetClass cco:ont00001180 ;  # Organization (CCO)
     sh:message "Organization must have an rdfs:label."@en ;
     sh:property [
         sh:path rdfs:label ;

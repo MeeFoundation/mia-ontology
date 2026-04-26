@@ -16,7 +16,7 @@
     owl:imports <https://purl.org/cco/address> ;
     owl:imports <https://purl.org/cco/staging> ;
     dc:date "2026-04-12"^^xsd:date ;
-    owl:versionInfo "Version 3.0.4 - add Organization class and roleInOrganization property"@en ;
+    owl:versionInfo "Version 3.0.5 - replace persona:Organization with cco:ont00001180"@en ;
     rdfs:label "Mee Foundation Persona Ontology"@en ;
     rdfs:comment """Persona Ontology for the Mee Identity Agent.
                     
@@ -62,7 +62,8 @@
     # Document CCO classes used directly (note: use full IRIs, not cco: prefix)
     persona:usesCCOClass <https://purl.org/cco/ont00001262> ,  # Person
                          <https://purl.org/cco/ont00001331> ,  # Legal Name
-                         <https://purl.org/cco/ont00000990> ;  # Nickname
+                         <https://purl.org/cco/ont00000990> ,  # Nickname
+                         <https://purl.org/cco/ont00001180> ;  # Organization
     
     # Document which properties this application uses (note: use full IRIs)
     persona:usesCCOProperty <https://purl.org/cco/ont00001879> ,  # designated by
@@ -110,11 +111,6 @@ persona:usagePattern rdf:type owl:AnnotationProperty ;
     rdfs:comment """Describes how this application uses a particular class or property."""@en ;
     rdfs:domain owl:Class .
 
-persona:Organization rdf:type owl:Class ;
-    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000027> ;  # BFO:Object Aggregate
-    rdfs:label "Organization"@en ;
-    rdfs:comment "A group of agents acting collectively toward shared goals (e.g., company, non-profit). May be aligned to a CCO Organization class when the IRI is confirmed."@en .
-
 persona:CareerRole rdf:type owl:Class ;
     rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;  # BFO:Role
     rdfs:label "Career Role"@en ;
@@ -143,7 +139,7 @@ persona:Contributor rdf:type owl:Class ;
 
 persona:roleInOrganization rdf:type owl:ObjectProperty ;
     rdfs:domain persona:CareerRole ;
-    rdfs:range persona:Organization ;
+    rdfs:range cco:ont00001180 ;  # Organization (CCO)
     rdfs:label "role in organization"@en ;
     rdfs:comment "Links a CareerRole instance to the organization in which that role is played."@en .
 
