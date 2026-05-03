@@ -32,7 +32,7 @@ Built on **BFO** (Basic Formal Ontology) and **CCO** (Common Core Ontologies), s
   - Addresses: current (Paradise, CA, 2025–present) and previous (Boston, MA, 2020–2025) with temporal intervals
   - Physical characteristics: height (68 in), eye color (blue), hair color (grey)
   - Family: mother Paula Walker, linked via CCO `has mother` / `is mother of`
-  - Social network: partitioned into Family, Friends, Colleagues, and Other sub-groups (CCO Social Networks linked via BFO `has part`), with Paula Walker in both Family and Colleague to demonstrate intersection
+  - Social network: partitioned into Family, Friends, Colleagues, and Other sub-groups (CCO Social Networks linked via BFO `has part`), with Paula Walker in both Family and Colleagues (demonstrating sub-group intersection) and Bob Johnston in Colleagues
 
 ## Architecture
 
