@@ -5,7 +5,9 @@
       "Bash(shaclvalidate:*)",
       "Bash(shacl validate:*)",
       "Bash(riot --output=ttl example.ttl persona.ttl)",
-      "Bash(riot --output=ntriples example.ttl persona.ttl)"
+      "Bash(riot --output=ntriples example.ttl persona.ttl)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
