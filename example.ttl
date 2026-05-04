@@ -162,7 +162,7 @@
 
 ###  Previous Address: Boston (2020-2025)
 :Boston_Residence rdf:type owl:NamedIndividual ,
-                           cco:ent00000016 ;
+                           cco:ent00000016 ; # AddressDesignation
     rdfs:label "Alice's Boston Residence (2020-2025)"@en ;
     rdfs:comment "Alice lived at this Boston address from 2020 to 2025."@en ;
     <http://purl.obolibrary.org/obo/BFO_0000139> :Alice_Walker ;  # has participant
@@ -209,13 +209,13 @@
                                 <http://purl.obolibrary.org/obo/BFO_0000038> ;  # TemporalInterval
     rdfs:label "September 2025 to present"@en ;
     rdfs:comment "Open-ended interval - absence of end date indicates current/ongoing"@en ;
-    cco:ent00000017 "2025-09-01"^^xsd:date .
+    cco:ent00000017 "2025-09-01"^^xsd:date . #has start date
     # No cco:ent00000018 = still current
 
 
 ###  Paradise Address Details
 :Address_Paradise rdf:type owl:NamedIndividual ,
-                          cco:ent00000010 ;
+                          cco:ent00000010 ; # UsPostalAddress
     rdfs:label "Paradise Address"@en ;
     
     <http://purl.obolibrary.org/obo/BFO_0000178> [  # has continuant part → Street
