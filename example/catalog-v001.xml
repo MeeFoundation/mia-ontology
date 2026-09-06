@@ -3,107 +3,113 @@
 
     <!-- ── Application ontologies ───────────────────────────────────────── -->
     <uri id="persona"                  name="http://mee.foundation/ontologies/persona"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/persona.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/persona.ttl"/>
+    <uri id="persona-shacl" name="http://mee.foundation/ontologies/persona/shapes"
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/persona-shacl.ttl"/>
     <uri id="contactinfo-shacl"      name="http://mee.foundation/ontologies/persona/shapes/contactinfo"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/shacl/contactinfo-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/contactinfo-shacl.ttl"/>
     <uri id="cell"                 name="http://mee.foundation/ontologies/cell"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/cell.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/cell.ttl"/>
+    <uri id="cell-shacl" name="http://mee.foundation/ontologies/cell/shapes"
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/cell-shacl.ttl"/>
     <uri id="category"             name="http://mee.foundation/ontologies/category"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/category.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/category.ttl"/>
     <uri id="cat-templates"        name="http://mee.foundation/ontologies/cell-templates"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/cat-templates.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/cat-templates.ttl"/>
     <!-- ── Other ontologies (peer domain ontologies for what a person merely *has*) ── -->
     <uri id="pets"                     name="http://mee.foundation/ontologies/pets"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/pets.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/pets.ttl"/>
     <uri id="pets-shacl"               name="http://mee.foundation/ontologies/pets/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/pets-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/pets-shacl.ttl"/>
     <uri id="vehicles"                 name="http://mee.foundation/ontologies/vehicles"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/vehicles.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/vehicles.ttl"/>
     <uri id="vehicles-shacl"           name="http://mee.foundation/ontologies/vehicles/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/vehicles-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/vehicles-shacl.ttl"/>
     <uri id="identity-documents"       name="http://mee.foundation/ontologies/identity-documents"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/identity-documents.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/identity-documents.ttl"/>
     <uri id="identity-documents-shacl" name="http://mee.foundation/ontologies/identity-documents/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/identity-documents-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/identity-documents-shacl.ttl"/>
     <uri id="medical-appointments"       name="http://mee.foundation/ontologies/medical-appointments"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/medical-appointments.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/medical-appointments.ttl"/>
     <uri id="medical-appointments-shacl" name="http://mee.foundation/ontologies/medical-appointments/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/medical-appointments-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/medical-appointments-shacl.ttl"/>
     <uri id="service-accounts"           name="http://mee.foundation/ontologies/service-accounts"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/service-accounts.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/service-accounts.ttl"/>
     <uri id="service-accounts-shacl"     name="http://mee.foundation/ontologies/service-accounts/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/service-accounts-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/service-accounts-shacl.ttl"/>
     <uri id="banking"                    name="http://mee.foundation/ontologies/banking"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/banking.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/banking.ttl"/>
     <uri id="banking-shacl"              name="http://mee.foundation/ontologies/banking/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/banking-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/banking-shacl.ttl"/>
     <uri id="residences"                 name="http://mee.foundation/ontologies/residences"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/residences.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/residences.ttl"/>
     <uri id="residences-shacl"           name="http://mee.foundation/ontologies/residences/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/residences-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/residences-shacl.ttl"/>
     <uri id="itineraries"                name="http://mee.foundation/ontologies/itineraries"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/itineraries.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/itineraries.ttl"/>
     <uri id="itineraries-shacl"          name="http://mee.foundation/ontologies/itineraries/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/other/shacl/itineraries-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/other/shacl/itineraries-shacl.ttl"/>
     <!-- First non-CCO/non-mee.foundation external ontology this project vendors -->
     <uri id="dron-upper-subset"        name="http://mee.foundation/ontologies/dron-upper-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/dron-upper.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/dron-upper.ttl"/>
     <uri id="ncbitaxon-subset"         name="http://mee.foundation/ontologies/ncbitaxon-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/ncbitaxon-subset.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/ncbitaxon-subset.ttl"/>
     <uri id="vbo-subset"               name="http://mee.foundation/ontologies/vbo-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/vbo-subset.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/vbo-subset.ttl"/>
     <uri id="wikidata-vehicle-makes-subset"    name="http://mee.foundation/ontologies/wikidata-vehicle-makes-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/wikidata-vehicle-makes-subset.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/wikidata-vehicle-makes-subset.ttl"/>
     <uri id="wikidata-vehicle-models-subset"   name="http://mee.foundation/ontologies/wikidata-vehicle-models-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/wikidata-vehicle-models-subset.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/wikidata-vehicle-models-subset.ttl"/>
     <uri id="prov-upper-subset"        name="http://mee.foundation/ontologies/prov-upper-subset"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/prov-upper.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/prov-upper.ttl"/>
     <uri id="pdn-identity"             name="http://mee.foundation/ontologies/pdn-identity"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/pdn-identity.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/pdn-identity.ttl"/>
+    <uri id="pdn-identity-shacl" name="http://mee.foundation/ontologies/pdn-identity/shapes"
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/pdn-identity-shacl.ttl"/>
     <uri id="organization"             name="http://mee.foundation/ontologies/organization"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/organization.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/organization.ttl"/>
     <uri id="organization-shacl"       name="http://mee.foundation/ontologies/organization/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/shacl/organization-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/organization-shacl.ttl"/>
     <uri id="agent"                    name="http://mee.foundation/ontologies/agent"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/agent.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/agent.ttl"/>
     <uri id="agent-shacl"              name="http://mee.foundation/ontologies/agent/shapes"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/shacl/agent-shacl.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/shacl/agent-shacl.ttl"/>
 
     <!-- ── Selfness files (now DataBook — loaded via triplestore, not owl:imports) ── -->
 
     <!-- ── Top-level domain ontologies ─────────────────────────────────── -->
     <uri id="PersonOntology"   name="https://w3id.org/cco-domains/domains/PersonOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/PersonOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/PersonOntology.ttl"/>
     <uri id="AddressOntology"  name="https://w3id.org/cco-domains/domains/AddressOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/AddressOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/AddressOntology.ttl"/>
     <uri id="StagingOntology"  name="https://w3id.org/cco-domains/domains/StagingOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/StagingOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/StagingOntology.ttl"/>
 <!-- ── BFO foundation ───────────────────────────────────────────────── -->
     <uri id="bfo" name="http://purl.obolibrary.org/obo/bfo.owl"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/bfo-core.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/bfo-core.ttl"/>
 
     <!-- ── CCO support ontologies ───────────────────────────────────────── -->
     <uri id="InformationEntityOntology" name="https://w3id.org/cco-domains/cco/InformationEntityOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/InformationEntityOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/InformationEntityOntology.ttl"/>
     <uri id="AgentOntology"             name="https://w3id.org/cco-domains/cco/AgentOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/AgentOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/AgentOntology.ttl"/>
     <uri id="ArtifactOntology"          name="https://w3id.org/cco-domains/cco/ArtifactOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/ArtifactOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/ArtifactOntology.ttl"/>
     <uri id="CurrencyUnitOntology"      name="https://w3id.org/cco-domains/cco/CurrencyUnitOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/CurrencyUnitOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/CurrencyUnitOntology.ttl"/>
     <uri id="EventOntology"             name="https://w3id.org/cco-domains/cco/EventOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/EventOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/EventOntology.ttl"/>
     <uri id="ExtendedRelationOntology"  name="https://w3id.org/cco-domains/cco/ExtendedRelationOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/ExtendedRelationOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/ExtendedRelationOntology.ttl"/>
     <uri id="FacilityOntology"          name="https://w3id.org/cco-domains/cco/FacilityOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/FacilityOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/FacilityOntology.ttl"/>
     <uri id="GeospatialOntology"        name="https://w3id.org/cco-domains/cco/GeospatialOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/GeospatialOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/GeospatialOntology.ttl"/>
     <uri id="QualityOntology"           name="https://w3id.org/cco-domains/cco/QualityOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/QualityOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/QualityOntology.ttl"/>
     <uri id="TimeOntology"              name="https://w3id.org/cco-domains/cco/TimeOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/TimeOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/TimeOntology.ttl"/>
     <uri id="UnitsOfMeasureOntology"    name="https://w3id.org/cco-domains/cco/UnitsOfMeasureOntology"
-         uri="file:/Users/paul/Documents/Work/GitHub/mia-ontologies/project_files/UnitsOfMeasureOntology.ttl"/>
+         uri="file:/Users/paul/GitHub/mia-ontologies/project_files/UnitsOfMeasureOntology.ttl"/>
 
 </catalog>

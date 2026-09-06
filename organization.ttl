@@ -8,10 +8,10 @@
 @base <http://mee.foundation/ontologies/organization> .
 
 <http://mee.foundation/ontologies/organization> rdf:type owl:Ontology ;
-    owl:versionIRI <http://mee.foundation/ontologies/organization/1.5.0> ;
+    owl:versionIRI <http://mee.foundation/ontologies/organization/1.6.0> ;
     owl:imports <https://w3id.org/cco-domains/cco/AgentOntology> ;
-    dc:date "2026-09-04"^^xsd:date ;
-    owl:versionInfo "Version 1.5.0 - added o:hasWebsite (an Organization's own public website URL)."@en ;
+    dc:date "2026-09-05"^^xsd:date ;
+    owl:versionInfo "Version 1.6.0 - added o:numMembers (the number of members an Organization currently has)."@en ;
     rdfs:label "Organization Ontology"@en ;
     rdfs:comment """Organization Ontology for the Cellula App.
                     Describes organizations that participate in the Personal Data Network.
@@ -33,3 +33,10 @@ o:hasWebsite rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:label "has website"@en ;
     rdfs:comment "The organization's own public website URL."@en .
+
+o:numMembers rdf:type owl:DatatypeProperty ;
+    rdfs:domain o:Organization ;
+    rdfs:range xsd:integer ;
+    rdfs:label "number of members"@en ;
+    rdfs:comment """The number of members the organization currently has. A plain count asserted by
+                    whoever claims the graph, not derived from any modeled membership relation."""@en .

@@ -2,10 +2,12 @@
 id: http://www.example.org/mia/cells/cell-01
 title: "Boston Hub Society"
 type: cell-databook
-version: 1.2.0
+version: 1.3.0
 created: 2026-07-10
 description: >
-  Cell DataBook for folder "Boston Hub Society" (cell:category: cat:Affiliations). It is a multi-member cell with three members about :BHS, :Self, and :Bob_Johnson.
+  Cell DataBook for folder "Boston Hub Society" (cell:category: cat:Affiliations). It is a multi-member
+  cell with three members about :BHS, :Self, and :Bob_Johnson, plus one topic graph about :BHS itself —
+  the society's own organizational profile, claimed by BHS.
 mia:
   category: "cat:Affiliations"
   creator: ":Self"
@@ -23,6 +25,11 @@ mia:
       claimant: ":Bob_Johnson"
       subject: ":Bob_Johnson"
       template: "pshapes:ContactInfoShape"
+  topic:
+    - id: "http://www.example.org/mia/graphs/graph-92"
+      claimant: ":BHS"
+      subject: ":BHS"
+      template: "oshapes:OrganizationShape"
 ---
 
 ## Graphs
@@ -32,7 +39,7 @@ mia:
 
 #### Overview
 
-This graph captures the Boston Hub Society as an `o:Organization`. In our example BHS is compatible with PDN and participates directly as a member of this cell, alongside Alice and Bob. BHS asserts a basic profile about itself here. BHS is the claimant.
+This graph captures the Boston Hub Society as an `o:Organization`. In our example BHS is compatible with PDN and participates directly as a member of this cell, alongside Alice and Bob. This is the identity BHS presents as one of the cell's three parties — its name and a short description of itself; the society's own organizational facts (member count, website) are the cell's `cell:topic` instead, graph 92. BHS is the claimant.
 
 #### Graph
 
@@ -167,4 +174,34 @@ This graph captures Alice Walker's BHS profile — the identity data she shares 
     <http://purl.obolibrary.org/obo/BFO_0000057> :Self ;
     <https://w3id.org/cco-domains/domains/AddressOntology#ent00000324> :Address_BHS .
 
+```
+
+<a id="graph-92"></a>
+### Graph 92
+
+#### Overview
+
+This graph captures the Boston Hub Society's own organizational profile — the society as an
+`o:Organization` in its own right, with its current member count and public website — as the cell's
+`cell:topic`. It is distinct from graph 01, BHS's `cell:member` entry, which carries only the identity
+BHS presents as one of the three parties to this cell. BHS is the claimant.
+
+#### Graph
+
+```turtle
+<!-- databook:id: bhs-org-profile-graph -->
+<!-- databook:graph: http://www.example.org/mia/graphs/graph-92#graph -->
+@prefix : <http://www.example.org/mia#> .
+@prefix o: <http://mee.foundation/ontologies/organization#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:BHS rdf:type owl:NamedIndividual ,
+             o:Organization ;
+    rdfs:label "Boston Hub Society"@en ;
+
+    o:numMembers 80 ;
+    o:hasWebsite "https://bostonhubsociety.example.org"^^xsd:anyURI .
 ```

@@ -10,6 +10,7 @@
 @prefix bankingshapes: <http://mee.foundation/ontologies/banking/shapes#> .
 @prefix residenceshapes: <http://mee.foundation/ontologies/residences/shapes#> .
 @prefix itineraryshapes: <http://mee.foundation/ontologies/itineraries/shapes#> .
+@prefix oshapes: <http://mee.foundation/ontologies/organization/shapes#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -18,10 +19,10 @@
 @base <http://mee.foundation/ontologies/cell-templates> .
 
 <http://mee.foundation/ontologies/cell-templates> rdf:type owl:Ontology ;
-    owl:versionIRI <http://mee.foundation/ontologies/cell-templates/2.22.0> ;
+    owl:versionIRI <http://mee.foundation/ontologies/cell-templates/2.23.0> ;
     dc:date "2026-09-05"^^xsd:date ;
     owl:imports <http://mee.foundation/ontologies/cell> ;
-    owl:versionInfo "Version 2.22.0 - every cell:memberGraphShape/cell:topicGraphShape value naming pshapes:JSContactCardPersonShape renamed to pshapes:ContactInfoShape"@en ;
+    owl:versionInfo "Version 2.23.0 - ctpl:AffiliationsTemplateCell flipped to cell:isTopicCell true, carrying cell:topicGraphShape oshapes:OrganizationShape"@en ;
     rdfs:label "Cell Templates"@en ;
     rdfs:comment """Class-level cell:Cell templates for category concepts (category.ttl's cat:CategoryScheme). Each individual here is what the app clones into a new cell when a folder representing its own cell:category concept is first instantiated into a user's tree (Lazy Instantiation) — finding the template for a given category is a reverse lookup (?tc cell:category cat:X), since category.ttl carries no forward pointer of its own. Each is typed solely cell:TemplateCell."""@en .
 
@@ -266,7 +267,8 @@ ctpl:AffiliationsTemplateCell rdf:type cell:Cell, cell:TemplateCell ;
     rdfs:label "Affiliations Template Cell"@en ;
     cell:category cat:Affiliations ;
     cell:memberGraphShape pshapes:ContactInfoShape ;
-    cell:isTopicCell false .
+    cell:topicGraphShape oshapes:OrganizationShape ;
+    cell:isTopicCell true .
 
 #################################################################
 #  cat:BankingPayments(org)

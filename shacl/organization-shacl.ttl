@@ -9,8 +9,8 @@
 
 <http://mee.foundation/ontologies/organization/shapes> rdf:type owl:Ontology ;
     owl:imports <http://mee.foundation/ontologies/organization> ;
-    owl:versionIRI <http://mee.foundation/ontologies/organization/shapes/1.1.0> ;
-    dc:date "2026-08-23"^^xsd:date ;
+    owl:versionIRI <http://mee.foundation/ontologies/organization/shapes/1.2.0> ;
+    dc:date "2026-09-05"^^xsd:date ;
     rdfs:label "Organization Ontology SHACL Validation Shapes"@en ;
     rdfs:comment "SHACL validation shapes for the Organization Ontology."@en .
 
@@ -22,4 +22,20 @@
 :OrganizationShape
     a sh:NodeShape ;
     sh:targetClass o:Organization ;
-    sh:message "Organization validation."@en .
+    sh:message "Organization validation."@en ;
+
+    # Both properties are optional — most organizations in the example data are
+    # named only as a cell member or claimant, with no profile of their own.
+    sh:property [
+        sh:path o:hasWebsite ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:message "An Organization may have at most one website, an xsd:anyURI."@en
+    ] ;
+    sh:property [
+        sh:path o:numMembers ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxCount 1 ;
+        sh:message "An Organization may have at most one member count, a non-negative xsd:integer."@en
+    ] .

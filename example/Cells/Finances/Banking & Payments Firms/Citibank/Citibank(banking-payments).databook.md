@@ -5,11 +5,10 @@ type: cell-databook
 version: 2.0.0
 created: 2026-07-10
 description: >
-  Cell DataBook for folder "Citibank" (cell:category: cat:BankingPayments). It is a one-member
-  cell (member entry about :Citibank) with two topic graphs about :Self — one Alice's own
-  self-asserted service-account username/password, the other Citibank's own claimed record
-  (debit card, checking account, online service account), moved here from the cell's former
-  graph-09.
+  Cell DataBook for folder "Citibank" (cell:category: cat:BankingPayments). It is a two-member
+  cell (member entries about :Citibank and :Self) with two topic graphs about :Self — one Alice's
+  own self-asserted service-account username/password, the other Citibank's own claimed record
+  (debit card, checking account, online service account).
 mia:
   category: "cat:BankingPayments"
   creator: ":Self"
@@ -75,7 +74,7 @@ This graph captures Alice Walker's own self-claimed notes about Citibank as an i
 
 #### Overview
 
-This graph is one of the cell's two required `member` entries, claimed by and about `:Self` — a minimal given-name stub, so `:Self` is a genuine member of this cell (see Check 21) alongside `:Citibank` (graph 27), matching the diagram's two member circles. Note: this makes the cell's own `member` subjects (`:Self`, `:Citibank`) overlap with its `topic` subject (`:Self`, from graphs 75/76) — a known, deliberately-deferred Check 18 tension, not yet resolved.
+This graph is one of the cell's two required `member` entries, claimed by and about `:Self` — a minimal given-name stub, so `:Self` is a genuine member of this cell (see Check 21) alongside `:Citibank` (graph 27), matching the diagram's two member circles. Note: this makes the cell's own `member` subjects (`:Self`, `:Citibank`) overlap with its `topic` subject (`:Self`, from graphs 75/76) — a known, deliberately-deferred Check 18 tension.
 
 #### Graph
 
@@ -141,7 +140,7 @@ This graph is Alice's own self-asserted claim about her Citibank online service 
 
 #### Overview
 
-This graph captures Alice Walker's financial relationship with Citibank. Citibank is a PDN Organization node which directly claims the information about Alice in this graph. The information in this graph has been transmitted from the Citibank PDN node to Alice's own instance of the app. It includes a VISA debit card linked to a checking account, plus an online service account for online.citi.com. Citibank is the claimant. (Moved here, as this cell's `cell:topic` content, from the cell's former `member` graph-09, now deleted.)
+This graph captures Alice Walker's financial relationship with Citibank. Citibank is a PDN Organization node which directly claims the information about Alice in this graph. The information in this graph has been transmitted from the Citibank PDN node to Alice's own instance of the app. It includes a VISA debit card linked to a checking account, plus an online service account for online.citi.com. Citibank is the claimant.
 
 #### Graph
 

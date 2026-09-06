@@ -1,0 +1,17 @@
+flowchart TD
+    classDef person fill:#fffacd,stroke:#aaa,color:#333
+    classDef org    fill:#cce5ff,stroke:#aaa,color:#333
+    classDef lit    fill:none,stroke:none,font-style:italic,color:#2a7a2a
+    classDef meta   fill:#f5f5ff,stroke:#9999cc,color:#333
+
+    subgraph ctx["Graph"]
+        direction LR
+        ctx_meta["claimant: :BHS\nsubject: :BHS\ntemplate: oshapes:OrganizationShape"]:::meta
+    end
+
+    n0644db9ef116[":BHS\n(Organization)"]:::org
+    nf8befe7cf64a("80"):::lit
+    n2ee2b41d4b64("https://bostonhubsociety.example.org"):::lit
+
+    n0644db9ef116 -->|"numMembers"| nf8befe7cf64a
+    n0644db9ef116 -->|"hasWebsite"| n2ee2b41d4b64

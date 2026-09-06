@@ -105,6 +105,7 @@ SHAPE_NS = {
     "other/shacl/banking-shacl.ttl":      "http://mee.foundation/ontologies/banking/shapes#",
     "other/shacl/residences-shacl.ttl":   "http://mee.foundation/ontologies/residences/shapes#",
     "other/shacl/itineraries-shacl.ttl":  "http://mee.foundation/ontologies/itineraries/shapes#",
+    "shacl/organization-shacl.ttl":       "http://mee.foundation/ontologies/organization/shapes#",
 }
 
 # --- template CURIE prefix -> candidate shapes files ------------------------
@@ -122,6 +123,7 @@ PREFIX_TO_FILES = {
     "bankingshapes": ["other/shacl/banking-shacl.ttl"],
     "residenceshapes": ["other/shacl/residences-shacl.ttl"],
     "itineraryshapes": ["other/shacl/itineraries-shacl.ttl"],
+    "oshapes": ["shacl/organization-shacl.ttl"],
 }
 
 # --- shape local name -> shapes file -----------------------------------------
@@ -149,6 +151,7 @@ SHAPE_TO_FILE = {
     "PetMedicationRecordShape":      "other/shacl/pets-shacl.ttl",
     "PetsCareAndFeedingShape":       "other/shacl/pets-shacl.ttl",
     "VehicleShape":                  "other/shacl/vehicles-shacl.ttl",
+    "OrganizationShape":             "shacl/organization-shacl.ttl",
 }
 
 

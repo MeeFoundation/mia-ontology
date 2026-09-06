@@ -4,10 +4,14 @@
     <!-- ── Application ontologies ───────────────────────────────────────── -->
     <uri id="persona"                  name="http://mee.foundation/ontologies/persona"
          uri="persona.ttl"/>
+    <uri id="persona-shacl" name="http://mee.foundation/ontologies/persona/shapes"
+         uri="shacl/persona-shacl.ttl"/>
     <uri id="contactinfo-shacl"      name="http://mee.foundation/ontologies/persona/shapes/contactinfo"
          uri="shacl/contactinfo-shacl.ttl"/>
     <uri id="cell"                 name="http://mee.foundation/ontologies/cell"
          uri="cell.ttl"/>
+    <uri id="cell-shacl" name="http://mee.foundation/ontologies/cell/shapes"
+         uri="shacl/cell-shacl.ttl"/>
     <uri id="category"             name="http://mee.foundation/ontologies/category"
          uri="category.ttl"/>
     <uri id="cat-templates"        name="http://mee.foundation/ontologies/cell-templates"
@@ -60,6 +64,8 @@
          uri="project_files/prov-upper.ttl"/>
     <uri id="pdn-identity"             name="http://mee.foundation/ontologies/pdn-identity"
          uri="pdn-identity.ttl"/>
+    <uri id="pdn-identity-shacl" name="http://mee.foundation/ontologies/pdn-identity/shapes"
+         uri="shacl/pdn-identity-shacl.ttl"/>
     <uri id="organization"             name="http://mee.foundation/ontologies/organization"
          uri="organization.ttl"/>
     <uri id="organization-shacl"       name="http://mee.foundation/ontologies/organization/shapes"
