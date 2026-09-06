@@ -2,7 +2,7 @@
 id: http://www.example.org/mia/cells/cell-20
 title: "Cells"
 type: cell-databook
-version: 1.1.0
+version: 1.2.0
 created: 2026-07-10
 description: >
   Cell DataBook for folder "Cells" (cell:category: cat:Person). It is a
@@ -17,6 +17,7 @@ mia:
     id: "http://www.example.org/mia/graphs/graph-38"
     claimant: ":Self"
     subject: ":Self"
+    template: "pshapes:ContactInfoShape"
 ---
 
 ## Graphs
@@ -26,7 +27,7 @@ mia:
 
 #### Overview
 
-This graph is the cell's one required `member` entry — a cell with a single `member` entry in the user's own category-cell tree always has `:Self` as that member (see Check 21), regardless of what the cell's `subject` is — here, Alice herself. The "Cells" cell is a purely organizational category node (`cell:category: cat:Person`) with no relationship or subject of its own beyond Alice's required membership, so this stub carries no further claims. Alice is both the claimant and the subject. Deliberately empty: the `member` requirement is about `g:subject`/`g:claimant` (asserted at the `mia.member[]`/`mia.topic[]` YAML level, not in this Turtle body), not about carrying any particular content — there is no rule requiring a member's graph to assert anything at all about them.
+This graph is the cell's one required `member` entry — a cell with a single `member` entry in the user's own category-cell tree always has `:Self` as that member (see Check 21), regardless of what the cell's `subject` is — here, Alice herself. The "Cells" cell is a purely organizational category node (`cell:category: cat:Person`) with no relationship or subject of its own beyond Alice's required membership, so this stub carries no further claims. Alice is both the claimant and the subject. It carries her given name, satisfying the `ContactInfoShape` `ctpl:PersonTemplateCell` sets as `cell:memberGraphShape` — no longer deliberately empty.
 
 #### Graph
 

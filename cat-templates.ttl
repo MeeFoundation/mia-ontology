@@ -19,12 +19,43 @@
 @base <http://mee.foundation/ontologies/cell-templates> .
 
 <http://mee.foundation/ontologies/cell-templates> rdf:type owl:Ontology ;
-    owl:versionIRI <http://mee.foundation/ontologies/cell-templates/2.23.0> ;
-    dc:date "2026-09-05"^^xsd:date ;
+    owl:versionIRI <http://mee.foundation/ontologies/cell-templates/2.24.0> ;
+    dc:date "2026-09-06"^^xsd:date ;
     owl:imports <http://mee.foundation/ontologies/cell> ;
-    owl:versionInfo "Version 2.23.0 - ctpl:AffiliationsTemplateCell flipped to cell:isTopicCell true, carrying cell:topicGraphShape oshapes:OrganizationShape"@en ;
+    owl:versionInfo "Version 2.24.0 - added ctpl:PersonTemplateCell (isTopicCell false) and ctpl:OrganizationTemplateCell (isTopicCell true, topicGraphShape oshapes:OrganizationShape) for the two SKOS top concepts"@en ;
     rdfs:label "Cell Templates"@en ;
     rdfs:comment """Class-level cell:Cell templates for category concepts (category.ttl's cat:CategoryScheme). Each individual here is what the app clones into a new cell when a folder representing its own cell:category concept is first instantiated into a user's tree (Lazy Instantiation) — finding the template for a given category is a reverse lookup (?tc cell:category cat:X), since category.ttl carries no forward pointer of its own. Each is typed solely cell:TemplateCell."""@en .
+
+#################################################################
+#  cat:Person  (SKOS top concept)
+#################################################################
+
+ctpl:PersonTemplateCell rdf:type cell:Cell, cell:TemplateCell ;
+    rdfs:label "Person Template Cell"@en ;
+    rdfs:comment """The template for cat:Person, one of the scheme's two SKOS top concepts. A cell
+                    instantiated directly as bare "Person" is the root of a user's own tree of
+                    cells — purely organizational, with no document, account or third party of its
+                    own — so it carries only the business-card member view every template shares,
+                    and cell:isTopicCell false."""@en ;
+    cell:category cat:Person ;
+    cell:memberGraphShape pshapes:ContactInfoShape ;
+    cell:isTopicCell false .
+
+#################################################################
+#  cat:Organization  (SKOS top concept)
+#################################################################
+
+ctpl:OrganizationTemplateCell rdf:type cell:Cell, cell:TemplateCell ;
+    rdfs:label "Organization Template Cell"@en ;
+    rdfs:comment """The template for cat:Organization, one of the scheme's two SKOS top concepts. A
+                    cell instantiated directly as bare "Organization" stands for the organization
+                    itself — an employer, say — so its cell:topic carries that organization's own
+                    o:Organization profile, the same oshapes:OrganizationShape cat:Affiliations
+                    uses."""@en ;
+    cell:category cat:Organization ;
+    cell:memberGraphShape pshapes:ContactInfoShape ;
+    cell:topicGraphShape oshapes:OrganizationShape ;
+    cell:isTopicCell true .
 
 #################################################################
 #  cat:Passport

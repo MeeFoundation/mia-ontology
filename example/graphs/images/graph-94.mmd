@@ -1,0 +1,17 @@
+flowchart TD
+    classDef person fill:#fffacd,stroke:#aaa,color:#333
+    classDef org    fill:#cce5ff,stroke:#aaa,color:#333
+    classDef lit    fill:none,stroke:none,font-style:italic,color:#2a7a2a
+    classDef meta   fill:#f5f5ff,stroke:#9999cc,color:#333
+
+    subgraph ctx["Graph"]
+        direction LR
+        ctx_meta["claimant: :Self\nsubject: :Acme\ntemplate: oshapes:OrganizationShape"]:::meta
+    end
+
+    n7bff298e566c[":Acme\n(Organization)"]:::org
+    nba4c41a7cdce("2400"):::lit
+    n61c6723fdb01("https://acme.example.com"):::lit
+
+    n7bff298e566c -->|"numMembers"| nba4c41a7cdce
+    n7bff298e566c -->|"hasWebsite"| n61c6723fdb01

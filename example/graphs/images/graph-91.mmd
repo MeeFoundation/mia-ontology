@@ -1,0 +1,12 @@
+flowchart TD
+    classDef person fill:#fffacd,stroke:#aaa,color:#333
+    classDef org    fill:#cce5ff,stroke:#aaa,color:#333
+    classDef lit    fill:none,stroke:none,font-style:italic,color:#2a7a2a
+    classDef meta   fill:#f5f5ff,stroke:#9999cc,color:#333
+
+    subgraph ctx["Graph"]
+        direction LR
+        ctx_meta["claimant: :Dave\nsubject: :Kyoto_Trip_2027\ntemplate: itineraryshapes:ItineraryShape"]:::meta
+    end
+
+    nd86bc17c484e[":Kyoto_Trip_2027\n(Itinerary)"]
